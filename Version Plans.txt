@@ -1,0 +1,5 @@
+v1 - Bare-Boned Console Application
+v2 - Adding OOP + packaging it
+v3 - Adding Web Interface
+v4 - Front-End improvements
+v5 - TBD (DB/Message queue?)
