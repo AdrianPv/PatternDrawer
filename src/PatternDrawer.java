@@ -4,33 +4,23 @@ import java.util.EnumMap;
 import java.util.Scanner;
 
 public class PatternDrawer {
-    private static enum Pattern {
-        RightAngledTriangle,
-        SquareWithHollowCenter,
-        Diamond,
-        LeftAngledTriangle,
-        HollowSquare,
-        Pyramid,
-        ReversePyramid,
-        RectangleWithHollowCenter
-    }
+    private final static String[] patterns = {
+        "RightAngledTriangle",
+        "SquareWithHollowCenter",
+        "Diamond",
+        "LeftAngledTriangle",
+        "HollowSquare",
+        "Pyramid",
+        "ReversePyramid",
+        "RectangleWithHollowCenter"
+    };
 
 
     public static void main(String[] args) {
-        final EnumMap<Pattern, Integer> patternIndexes = new EnumMap<Pattern, Integer>(Pattern.class);
-        patternIndexes.put(Pattern.RightAngledTriangle, 1);
-        patternIndexes.put(Pattern.SquareWithHollowCenter, 2);
-        patternIndexes.put(Pattern.Diamond, 3);
-        patternIndexes.put(Pattern.LeftAngledTriangle, 4);
-        patternIndexes.put(Pattern.HollowSquare, 5);
-        patternIndexes.put(Pattern.Pyramid, 6);
-        patternIndexes.put(Pattern.ReversePyramid, 7);
-        patternIndexes.put(Pattern.RectangleWithHollowCenter, 8);
-
         System.out.println("\uD83C\uDF1F Welcome to the Java Pattern Drawing Program!");
         System.out.println("Enter the number corresponding to your choice: ");
-        for (Pattern pat : Pattern.values()) {
-            System.out.printf("%d) %s%n", patternIndexes.get(pat), pat);
+        for (int i = 0; i < patterns.length ; i++) {
+            System.out.printf("%d) %s%n", i+1 , patterns[i]);
         }
         System.out.println("0) Exit");
 
@@ -47,13 +37,14 @@ public class PatternDrawer {
             if (choice == 0) {
                 //return;
             }
-           else if (choice < 0 || !patternIndexes.containsValue(choice)) {
+           else if (choice < 0 || choice > patterns.length) {
               // obfuscate checks
                 System.out.println("❌ Invalid choice!");
             }
             else {  // choice is valid
               //TODO: call implementations
-                System.out.printf("Your choice is %d) %s%n", choice, patternIndexes.getClass());
+                System.out.printf("Your choice is %d) %s%n", choice, patterns[choice - 1]);
+                return;
             }
         }
     }
